@@ -23,7 +23,7 @@ python3 solver.py <filename.csv>
 ```
 
 Replace `<filename.csv>` with the path to your Sudoku board file.
-Depending on which Python you're using, you may need to replace the ```python3 ``` command with ```sh python ``` 
+Depending on which Python you're using, you may need to replace the ```python3``` command with ```python ``` 
 
 ### Input Format
 The input Sudoku board must be a CSV file where:
