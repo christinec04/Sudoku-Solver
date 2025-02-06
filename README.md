@@ -1,5 +1,4 @@
 # Sudoku-Solver
-# Sudoku Solver - B351/Q351 Spring 2025
 
 ## Overview
 This project implements a Sudoku solver using constraint satisfaction and backtracking techniques. The solver reads an input Sudoku board from a CSV file and attempts to solve it using a depth-first search (DFS) approach with forward checking and backtracking.
