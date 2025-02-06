@@ -30,12 +30,17 @@ The input Sudoku board must be a CSV file where:
 - Each row represents a line of the Sudoku grid.
 - Empty spaces are represented by empty cells in the CSV.
 
-Example CSV (4x4 Sudoku):
+Example CSV (9x9 Sudoku):
 ```
-1, , , 4
- , ,3,
- ,2, ,
-3, , ,1
+5,7,,2,,4,,9,
+8,,,,5,,7,,
+,,,,,8,6,5,
+,,,,,5,2,4,7
+,,7,,,,9,,
+3,9,4,8,,,,,
+,6,8,4,,,,,
+,,9,,8,,,,6
+,3,,6,,7,,8,2
 ```
 
 ## Code Structure
