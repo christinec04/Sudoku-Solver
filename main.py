@@ -187,35 +187,6 @@ class Solver:
 
     # Returns True if a solution exists and False if one does not
     def solveBoard(self, board):
-        originalBoard = board # make a copy of the og board to keep
-        
-        # returns True if solution exists
-        # implements DFS, forward and backtracking
-        def dfs():
-            if len(board.unsolvedSpaces) == 0: # solved
-                return True
-            
-            space = board.getMostConstrainedUnsolvedSpace()
-            
-            for val in board.evaluateSpace(space): # iterate over possible values for current space
-                if(board.isValidMove(space, val)):
-                    board.makeMove(space, val)
-                    
-                    # forward checking
-                    forwardValid = True
-                   
-                    for neighbor in getRelatedSpaces(space):
-                        if len(board.evaluteSpace(neighbor)) == 0: # no possible solution
-                            forwardValid = False
-                            break
-                        
-                    if forwardValid and dfs(): # forward checking passed
-                        return True
-                    
-                    board.undoMove(space, val) # backtrack if failure
-
-            return False # no solution
-             
         # returns list of local spaces related by constraints          
         def getRelatedSpaces(space):
             r , c = space
@@ -230,20 +201,33 @@ class Solver:
             
             return [space for space in toCheck if space in board.unsolvedSpaces]          
                         
-        # start solver
-        if dfs():
-            return True # solution exists
-        else:
-            board = originalBoard # revert to origin
-            return False # no solution                    
-            
+        originalBoard = board # make a copy of the og board to keep
         
+        if len(board.unsolvedSpaces) == 0: # solved
+            return True
+        
+        space = board.getMostConstrainedUnsolvedSpace()
+        
+        for val in board.evaluateSpace(space): # iterate over possible values for current space
+            if(board.isValidMove(space, val)):
+                board.makeMove(space, val)
                 
-            
-            
-            
+                # forward checking
+                forwardValid = True
+                
+                for neighbor in getRelatedSpaces(space):
+                    if len(board.evaluteSpace(neighbor)) == 0: # no possible solution
+                        forwardValid = False
+                        break
+                    
+                if forwardValid and self.solveBoard(board): # forward checking passed
+                    return True
+                
+                board.undoMove(space, val) # backtrack if failure
 
-            
+        board = originalBoard # revert to origin
+        return False # no solution
+    
 if __name__ == "__main__":
     if len(sys.argv) < 2:
       print("Please enter the name of the csv file to run.\nFor instance, ``python3 a2.py example.csv``")
