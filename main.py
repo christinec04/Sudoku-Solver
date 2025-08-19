@@ -150,7 +150,7 @@ class Board():
         
         return False
 
-    # Optional helper function for use by getMostConstrainedUnsolvedSpace
+    # Helper function for getMostConstrainedUnsolvedSpace
     def evaluateSpace(self, space):
         r , c = space # Row, col index
         b = self.spaceToBox(r, c) # Box index
@@ -236,4 +236,5 @@ if __name__ == "__main__":
         s = Solver()
         s.solveBoard(board)
         board.print()
+
 
