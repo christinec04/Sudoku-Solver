@@ -1,5 +1,5 @@
 # Sudoku-Solver
-## ! New Developer's Notes
+## ! Recent Developer's Notes
 - **8/30/25:** In the process of making a web UI. An interactive rough markup has been made on [Figma](https://www.figma.com/proto/ZRLAd8SuQETYZ2MLkeL6cv/Sudoku-Solver-UI-Rough-Markup?node-id=10-10180&t=Lh1buo1qBlqHYfz8-1). Click around the buttons on page 1 to test it out!
 
 ## Overview
